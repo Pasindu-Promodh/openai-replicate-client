@@ -174,7 +174,7 @@ export default function App() {
 
     try {
       // const res = await fetch("http://localhost:3000/v1/chat/completions", {
-      const res = await fetch("http://openai-replicate-production.up.railway.app/v1/chat/completions", {
+      const res = await fetch("https://openai-replicate-production.up.railway.app/v1/chat/completions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
