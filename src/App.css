@@ -5,7 +5,11 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
     sans-serif;
   background: #f7f9fb;
 }
@@ -101,6 +105,39 @@ body {
   }
 }
 
+.language-picker {
+  text-align: center;
+  margin: 16px 0;
+}
+
+.language-title {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.language-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.language-buttons button {
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1px solid #d14c8f;
+  background: white;
+  color: #d14c8f;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.language-buttons button:active {
+  background: #d14c8f;
+  color: white;
+}
+
 /* Input */
 .input-bar {
   display: flex;
@@ -110,7 +147,6 @@ body {
   background: #fff;
   position: sticky;
   bottom: 0;
-
 }
 
 .input-bar input {
