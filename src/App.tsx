@@ -189,3 +189,98 @@ export default function App() {
     </div>
   );
 }
+
+
+
+
+
+// import { useState, useEffect, useRef } from "react";
+// import { useChat } from "@ai-sdk/react";
+// import ReactMarkdown from "react-markdown";
+
+// type Language = "en" | "si" | "ta" | null;
+
+// export default function App() {
+//   const [language, setLanguage] = useState<Language>(null);
+//   const [input, setInput] = useState("");
+//   const bottomRef = useRef<HTMLDivElement>(null);
+//   const initializedRef = useRef(false);
+
+//   const chat = useChat();
+
+//   // Initial greeting
+//   useEffect(() => {
+//     if (initializedRef.current) return;
+
+//     chat.setMessages([
+//       {
+//         id: crypto.randomUUID(),
+//         role: "assistant",
+//         content:
+//           "👶 **Hi, I’m MamaBot.**\n\nI’m here to help with pregnancy and newborn health.",
+//       },
+//     ]);
+
+//     initializedRef.current = true;
+//   }, [chat]);
+
+//   // Auto-scroll
+//   useEffect(() => {
+//     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+//   }, [chat.messages]);
+
+//   const sendMessage = async () => {
+//     if (!language || !input.trim()) return;
+
+//     await chat.sendMessage({
+//       role: "user",
+//       content: input,
+//       metadata: { language }, // ✅ THIS is how you pass extra data now
+//     });
+
+//     setInput("");
+//   };
+
+//   return (
+//     <div className="chat-container">
+//       <div className="messages">
+//         {chat.messages.map((m) => (
+//           <div key={m.id} className={`bubble ${m.role}`}>
+//             <ReactMarkdown>{m.content}</ReactMarkdown>
+//           </div>
+//         ))}
+
+//         {!language && (
+//           <div className="language-picker">
+//             <button onClick={() => setLanguage("en")}>English</button>
+//             <button onClick={() => setLanguage("si")}>සිංහල</button>
+//             <button onClick={() => setLanguage("ta")}>தமிழ்</button>
+//           </div>
+//         )}
+
+//         <div ref={bottomRef} />
+//       </div>
+
+//       <div className="input-bar">
+//         <input
+//           value={input}
+//           onChange={(e) => setInput(e.target.value)}
+//           placeholder="Ask MamaBot..."
+//           disabled={!language || chat.status === "streaming"}
+//           onKeyDown={(e) => {
+//             if (e.key === "Enter") {
+//               e.preventDefault();
+//               sendMessage();
+//             }
+//           }}
+//         />
+//         <button
+//           onClick={sendMessage}
+//           disabled={!language || chat.status === "streaming"}
+//         >
+//           Send
+//         </button>
+//       </div>
+//     </div>
+//   );
+// }
